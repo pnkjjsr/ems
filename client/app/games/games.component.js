@@ -5,6 +5,8 @@ import routes from './games.routes';
 
 export class GamesComponent {
   games = [];
+  newGame = [];
+
   /*@ngInject*/
   constructor($http, $scope, socket) {
     this.$http = $http;
@@ -18,13 +20,24 @@ export class GamesComponent {
   $onInit() {
     this.$http.get('/api/games')
       .then(response => {
-        this.games = response.data;        
+        this.games = response.data;
         this.socket.syncUpdates('games', this.games);
-      })
-      .error(function(err) {
-        alert('Error! Something went wrong');
-      });;
+      });
   }
+
+  addNewGame() {
+    if (this.newGame) {
+      this.$http.post('/api/games', {
+        name: this.newGame.name,
+        platform: this.newGame.platform,
+        genre: this.newGame.genre
+      });
+      this.newGame = [];
+    }
+  }
+
+
+
 
 }
 
