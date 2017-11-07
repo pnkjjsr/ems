@@ -1,1 +1,23 @@
-<div>This is the games view.</div>
+<div class="container">
+
+  <div class="page-heading">
+    <h1>Games</h1>
+  </div>
+
+  <table class="table">
+    <tr>
+      <td>Name</td>
+      <td>Platform</td>
+      <td>Genre</td>
+      <td>Action</td>
+    </tr>
+    <tr ng-repeat="game in $ctrl.games">
+      <td>{{game.name}}</td>
+      <td>{{game.platform}}</td>
+      <td>{{game.genre}}</td>
+      <td>
+        <button type="button" name="button" ng-click="addNewGame()"></button>
+      </td>
+    </tr>
+  </table>
+</div>
