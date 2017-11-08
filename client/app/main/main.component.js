@@ -24,7 +24,7 @@ export class MainController {
       });
   }
 
-  addThing() {    
+  addThing() {
     if (this.newThing) {
       this.$http.post('/api/things', {
         name: this.newThing

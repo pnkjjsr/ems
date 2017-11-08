@@ -16,19 +16,19 @@
       <td>{{game.platform}}</td>
       <td>{{game.genre}}</td>
       <td>
-        <button class="btn btn-default" type="button" name="button" ng-click="editGame()"><i class="fa fa-edit"></i> Edit</button>
-        <button class="btn btn-danger" type="button" name="button" ng-click="deleteGame()"><i class="fa fa-times"></i> Delete</button>
+        <!-- <button class="btn btn-default" type="button" name="button" ng-click="editGame()"><i class="fa fa-edit"></i> Edit</button> -->
+        <button class="btn btn-danger" type="button" name="button" ng-click="$ctrl.deleteGame(game)"><i class="fa fa-times"></i> Delete</button>
       </td>
     </tr>
     <tr>
       <td>
-        <input type="text" name="" value="" ng-model="$ctrl.newGame.name">
+        <input type="text" name="" value="" required ng-model="$ctrl.newGame.name">
       </td>
       <td>
-        <input type="text" name="" value="" ng-model="$ctrl.newGame.platform">
+        <input type="text" name="" value="" required ng-model="$ctrl.newGame.platform">
       </td>
       <td>
-        <input type="text" name="" value="" ng-model="$ctrl.newGame.genre">
+        <input type="text" name="" value="" required ng-model="$ctrl.newGame.genre">
       </td>
       <td>
         <button class="btn btn-primary" type="button" name="button" ng-click="$ctrl.addNewGame()"><i class="fa fa-plus"></i> Add Game</button>
