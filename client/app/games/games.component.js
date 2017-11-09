@@ -15,6 +15,16 @@ export class GamesComponent {
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('game');
     });
+
+    // Check object Key
+    this.checkObjectKey = function(obj) {
+      var size = 0,
+        key;
+      for (key in obj) {
+        if (obj.hasOwnProperty(key) ) size++;
+      }
+      return size;
+    };
   }
 
   // Initiate on Load
@@ -28,19 +38,24 @@ export class GamesComponent {
 
   // Add New Game
   addNewGame() {
-    if (this.newGame) {
+    var GamesObj = this.newGame;
+
+    var getValue = this.checkObjectKey(GamesObj);
+
+    if (getValue < 3) {
+      console.log(getValue);
+      return false;
+    } else if (this.newGame) {
       this.$http.post('/api/games', {
         name: this.newGame.name,
         platform: this.newGame.platform,
         genre: this.newGame.genre
       });
       this.newGame = [];
-
     }
   }
 
   deleteGame(game) {
-    console.log(game._id);
     this.$http.delete(`/api/games/${game._id}`);
   }
 
