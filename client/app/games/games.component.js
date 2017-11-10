@@ -39,9 +39,7 @@ export class GamesComponent {
   // Add New Game
   addNewGame() {
     var GamesObj = this.newGame;
-
     var getValue = this.checkObjectKey(GamesObj);
-
     if (getValue < 3) {
       console.log(getValue);
       return false;
@@ -59,9 +57,9 @@ export class GamesComponent {
     this.$http.delete(`/api/games/${game._id}`);
   }
 
-
-
-
+  toggleEditGame(index) {    
+    this.games[index].edit = !this.games[index].edit;
+  };
 }
 
 export default angular.module('emsApp.games', [ngRoute])

@@ -12,13 +12,25 @@
       <td>Action</td>
     </tr>
     <tr ng-repeat="game in $ctrl.games">
-      <td>{{game.name}}</td>
-      <td>{{game.platform}}</td>
-      <td>{{game.genre}}</td>
-      <td>
-        <!-- <button class="btn btn-default" type="button" name="button" ng-click="editGame()"><i class="fa fa-edit"></i> Edit</button> -->
-        <button class="btn btn-danger" type="button" name="button" ng-click="$ctrl.deleteGame(game)"><i class="fa fa-times"></i> Delete</button>
+      <td ng-hide="game.edit">{{game.name}}</td>
+      <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.name"></td>
+
+      <td ng-hide="game.edit">{{game.platform}}</td>
+      <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.platform"></td>
+
+      <td ng-hide="game.edit">{{game.genre}}</td>
+      <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.genre"></td>
+
+      <td ng-hide="game.edit">
+        <button class="btn btn-default" type="button" name="button" ng-click="$ctrl.toggleEditGame($index)"><i class="fa fa-edit"></i> Edit</button>
+        <button class="btn btn-danger" type="button" name="button" ng-click="$ctrl.deleteGame($index)"><i class="fa fa-times"></i> Delete</button>
       </td>
+      <td ng-show="game.edit">
+        <button class="btn btn-default" type="button" name="button" ng-click="$ctrl.saveGame($index)"><i class="fa fa-save"></i> Save</button>
+        <button class="btn btn-danger" type="button" name="button" ng-click="$ctrl.toggleEditGame($index)"><i class="fa fa-times"></i> Cancel</button>
+      </td>
+
+
     </tr>
     <tr>
       <td>
