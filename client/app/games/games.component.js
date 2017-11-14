@@ -57,9 +57,16 @@ export class GamesComponent {
     this.$http.delete(`/api/games/${game._id}`);
   }
 
-  toggleEditGame(index) {    
+  toggleEditGame(index) {
     this.games[index].edit = !this.games[index].edit;
   };
+
+  saveGame(index) {
+    this.$http.put('/api/games/' + this.games[index]._id, this.games[index])
+    this.games[index].edit = false;
+  }
+
+
 }
 
 export default angular.module('emsApp.games', [ngRoute])
