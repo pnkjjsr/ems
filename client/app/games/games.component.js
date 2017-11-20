@@ -32,6 +32,7 @@ export class GamesComponent {
     this.$http.get('/api/games')
       .then(response => {
         this.games = response.data;
+        this.originalGames = response.data;
         this.socket.syncUpdates('game', this.games);
       });
   }
@@ -53,8 +54,8 @@ export class GamesComponent {
     }
   }
 
-  deleteGame(game) {
-    this.$http.delete(`/api/games/${game._id}`);
+  deleteGame(index) {
+    this.$http.delete('/api/games/' + this.games[index]._id);
   }
 
   toggleEditGame(index) {
@@ -64,6 +65,11 @@ export class GamesComponent {
   saveGame(index) {
     this.$http.put('/api/games/' + this.games[index]._id, this.games[index])
     this.games[index].edit = false;
+  }
+
+  resetGames() {
+    this.games = this.originalGames;
+    this.filter = 'none';
   }
 
 
