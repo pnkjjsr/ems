@@ -3,8 +3,7 @@
   <div class="page-heading">
     <h1>Games</h1>
 
-    <button class="btn btn-primary" ng-click="$ctrl.resetGames()">Clear Filter</button>
-    Current Filter: {{$ctrl.filter}}
+    <button class="btn btn-primary" ng-click="$ctrl.resetGames()">Clear Filter</button> Current Filter: {{$ctrl.filter}}
   </div>
 
   <table class="table">
@@ -18,10 +17,14 @@
       <td ng-hide="game.edit">{{game.name}}</td>
       <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.name"></td>
 
-      <td ng-hide="game.edit">{{game.platform}}</td>
+      <td ng-hide="game.edit">
+        <a href="" ng-click="$ctrl.filterByPlatform(game.platform)">{{game.platform}}</a>
+      </td>
       <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.platform"></td>
 
-      <td ng-hide="game.edit">{{game.genre}}</td>
+      <td ng-hide="game.edit">
+        <a href="" ng-click="$ctrl.filterByGenre(game.genre)">{{game.genre}}</a>
+      </td>
       <td ng-show="game.edit"><input type="text" name="" value="" ng-model="game.genre"></td>
 
       <td ng-hide="game.edit">

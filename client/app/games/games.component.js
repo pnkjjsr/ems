@@ -72,6 +72,23 @@ export class GamesComponent {
     this.filter = 'none';
   }
 
+  filterByGenre(genre) {
+    this.resetGames();
+    this.games = this.games.filter(function(game) {
+      return game.genre === genre;
+    });
+    this.filter = 'Genre: ' + genre;
+  };
+
+  filterByPlatform(platform) {
+    this.resetGames();
+    this.games = this.games.filter(function(game) {
+      return game.platform === platform;
+    });
+    this.filter = 'Platform: ' + platform;
+  }
+
+
 
 }
 
