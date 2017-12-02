@@ -17,25 +17,53 @@ export class MainController {
   }
 
   $onInit() {
-    this.$http.get('/api/things')
+    this.$http.get('/api/categories')
       .then(response => {
-        this.awesomeThings = response.data;
-        this.socket.syncUpdates('thing', this.awesomeThings);
+        this.categories = response.data;
+        this.socket.syncUpdates('categories', this.categories);
       });
   }
 
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', {
-        name: this.newThing
+  loadMake(category) {
+    var category = category;
+    if(category){
+      this.$http.get('/api/makes')
+      .then(response => {
+        this.makes = response.data.filter(function(index){
+          return index.category === category;
+        });
+        this.socket.syncUpdates('makes', this.makes);
       });
-      this.newThing = '';
     }
   }
 
-  deleteThing(thing) {
-    this.$http.delete(`/api/things/${thing._id}`);
+  loadModal(make) {
+    var make = make;
+    if(make){
+      this.$http.get('/api/modals')
+      .then(response => {
+        this.models = response.data.filter(function(index){
+          return index.make === make;
+        });
+        this.socket.syncUpdates('makes', this.makes);
+      });
+    }
   }
+
+  loadModal(make) {
+    var make = make;
+    if(make){
+      this.$http.get('/api/modals')
+      .then(response => {
+        this.models = response.data.filter(function(index){
+          return index.make === make;
+        });
+        this.socket.syncUpdates('makes', this.makes);
+      });
+    }
+  }
+
+
 }
 
 export default angular.module('emsApp.main', [ngRoute])

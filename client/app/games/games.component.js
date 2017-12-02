@@ -4,8 +4,8 @@ const ngRoute = require('angular-route');
 import routes from './games.routes';
 
 export class GamesComponent {
-  games = [];
   newGame = [];
+  games = [];
 
   /*@ngInject*/
   constructor($http, $scope, socket) {

@@ -1,27 +1,106 @@
-<header class="hero-unit" id="banner">
+<div class="banner">
   <div class="container">
-    <h1>'Allo, 'Allo!</h1>
-    <p class="lead">Kick-start your next web app with Angular Fullstack</p>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in $ctrl.awesomeThings">
-        <li><a href="#" uib-tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="$ctrl.deleteThing(thing)">&times;</button></a></li>
-      </ul>
+    <div class="row">
+      <div class="col-md-4">
+        <form class="" action="index.html" method="post">
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <a href="#">I want to Buy</a>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <a href="#">I want to Sell</a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label for="">
+                    <input type="radio" name="" value="">
+                    Form Individual
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <div class="checkbox">
+                  <label for="">
+                    <input type="radio" name="" value="">
+                    Form Dealer
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <!-- {{ $ctrl.category }} -->
+                <select class="form-control" name="" ng-model="category" ng-change="$ctrl.loadMake(category)">
+                  <option value="default">Select Category</option>
+                  <option ng-repeat="category in $ctrl.categories">{{ category.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <select class="form-control" name="" ng-model="make" ng-change="$ctrl.loadModal(make)">
+                  <option value="default">Select Make</option>
+                  <option ng-repeat="make in $ctrl.makes">{{ make.name }}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <select class="form-control" name="" ng-model="modal" ng-change="$ctrl.loadYear(modal)">
+                  <option value="default">Select Model</option>
+                  <option ng-repeat="model in $ctrl.models">{{ model.name }}</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <select class="form-control" name="">
+                  <option value="default">Select Year</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <select class="form-control" name="">
+                  <option value="default">Select Trim</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-xs-6">
+              <div class="form-group">
+                <input class="form-control" type="text" name="" value="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="form-group">
+                <button class="btn btn-block btn-primary" type="button" name="button">
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-8">
+
+      </div>
     </div>
   </div>
-
-  <form class="thing-form">
-    <label>Syncs in realtime across clients</label>
-    <p class="input-group">
-      <input type="text" class="form-control" placeholder="Add a new thing here." ng-model="$ctrl.newThing">
-      <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="$ctrl.addThing()">Add New</button>
-      </span>
-    </p>
-  </form>
 </div>

@@ -16,6 +16,11 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/modal/modal.socket').register(socket);
+  require('../api/make/make.socket').register(socket);
+  require('../api/category/category.socket').register(socket);
+  require('../api/vehicle/vehicle.socket').register(socket);
+
   require('../api/game/game.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }

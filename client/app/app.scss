@@ -24,5 +24,12 @@ $fa-font-path: '/assets/fonts/font-awesome/';
 @import 'main/main';
 @import '../components/footer/footer';
 @import '../components/modal/modal';
+@import '../components/navbar/navbar';
 @import '../components/oauth-buttons/oauth-buttons';
 /* endinject */
+
+
+body {
+  padding: 110px 0 0 0;
+  font-family: "Rubik";
+}
