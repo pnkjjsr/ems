@@ -16,6 +16,8 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/trim/trim.socket').register(socket);
+  require('../api/year/year.socket').register(socket);
   require('../api/modal/modal.socket').register(socket);
   require('../api/make/make.socket').register(socket);
   require('../api/category/category.socket').register(socket);

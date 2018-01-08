@@ -9,6 +9,8 @@ import path from 'path';
 
 export default function(app) {
   // Insert routes below
+  app.use('/api/trims', require('./api/trim'));
+  app.use('/api/years', require('./api/year'));
   app.use('/api/modals', require('./api/modal'));
   app.use('/api/makes', require('./api/make'));
   app.use('/api/categories', require('./api/category'));

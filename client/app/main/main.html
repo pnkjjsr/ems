@@ -59,7 +59,7 @@
           <div class="row">
             <div class="col-xs-6">
               <div class="form-group">
-                <select class="form-control" name="" ng-model="modal" ng-change="$ctrl.loadYear(modal)">
+                <select class="form-control" name="" ng-model="modal" ng-change="$ctrl.loadTrim(modal)">
                   <option value="default">Select Model</option>
                   <option ng-repeat="model in $ctrl.models">{{ model.name }}</option>
                 </select>
@@ -67,8 +67,9 @@
             </div>
             <div class="col-xs-6">
               <div class="form-group">
-                <select class="form-control" name="">
+                <select class="form-control" name="" ng-change="$ctrl.loadTrim()">
                   <option value="default">Select Year</option>
+                  <option ng-repeat="year in $ctrl.years">{{year.year}}</option>
                 </select>
               </div>
             </div>
@@ -78,6 +79,7 @@
               <div class="form-group">
                 <select class="form-control" name="">
                   <option value="default">Select Trim</option>
+                  <option value="default" ng-repeat="trim in trims">{{trim.trims}}</option>
                 </select>
               </div>
             </div>
